@@ -1,7 +1,7 @@
 <?php
 function OpenCon()
 {
-    $host = "127.0.0.1:50525";
+    $host = "127.0.0.1:50354";
     $user = "azure";
     $pass = "6#vWHD_$";
     $db = "communal_services";
