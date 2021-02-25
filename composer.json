@@ -1,0 +1,15 @@
+{
+    "name": "anna/communal-services",
+    "type": "project",
+    "authors": [
+        {
+            "name": "AnnaAndropova",
+            "email": "raduga_a@bk.ru"
+        },
+        {
+            "name": "Maxim Kotolevsky",
+            "email": "maximkotolevsky@yandex.ru"
+        }
+    ],
+    "require": {}
+}
