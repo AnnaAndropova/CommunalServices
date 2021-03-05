@@ -3,12 +3,16 @@
     "type": "project",
     "authors": [
         {
-            "name": "AnnaAndropova",
+            "name": "Anna Andropova",
             "email": "raduga_a@bk.ru"
         },
         {
             "name": "Maxim Kotolevsky",
             "email": "maximkotolevsky@yandex.ru"
+        },
+        {
+            "name": "Natalia Salova",
+            "email": "salovanat01@gmail.com"
         }
     ],
     "require": {}
