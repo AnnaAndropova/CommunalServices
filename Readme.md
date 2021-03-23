@@ -13,7 +13,7 @@
 
 ## Документация
 
-* [ТЗ](https://docs.google.com/document/d/1b3GnJcp3NcLu1VM88ZNMGQOCand4tj5Nf7Ij2LGT2do/edit) 
+* [ТЗ](https://github.com/AnnaAndropova/CommunalServices/blob/master/%D0%A2%D0%97%20%D0%92%D0%9A%D0%A3.pdf) 
 * Swagger 
 * Метрика 
 
