@@ -13,7 +13,7 @@
 
 ## Документация
 
-* [Курсовая](https://github.com/AnnaAndropova/CommunalServices/blob/master/docs/Курсовая.pdf)
+* [Курсовая](https://github.com/AnnaAndropova/CommunalServices/blob/master/docs/Kursovaya-2.pdf)
 * [ТЗ](https://github.com/AnnaAndropova/CommunalServices/blob/master/docs/ТЗ%20ВКУ.pdf) 
 * Swagger 
 * Метрика 
