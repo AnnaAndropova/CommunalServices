@@ -15,5 +15,14 @@
             "email": "salovanat01@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "ext-pdo": "*"
+    },
+    "autoload": {
+        "classmap": ["php"],
+        "files": [  "php/contr/BillController.php",
+                    "php/contr/IndicationController.php",
+                    "php/contr/PriceController.php" ]
+    },
+    "description": ""
 }
