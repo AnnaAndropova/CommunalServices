@@ -13,7 +13,7 @@
 
 ## Документация
 
-* [Курсовая](https://github.com/AnnaAndropova/CommunalServices/blob/master/docs/Kursovaya-2.pdf)
+* [Курсовая](https://github.com/AnnaAndropova/CommunalServices/blob/master/docs/Курсовая.pdf)
 * [ТЗ](https://github.com/AnnaAndropova/CommunalServices/blob/master/docs/ТЗ%20ВКУ.pdf) 
 * [Figma](https://www.figma.com/file/BNhgByrNvbXKFFpeY7KCow/Макет?node-id=0%3A1)
 * Swagger 
