@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Воронеж. Коммунальные услуги</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="wrapper">
+            <div class="header_wrapper">
+
+                <div class="header_logo">
+                    <a href="index.html" class="header_logo-link">
+                        <img src="img/svg/logo.svg" alt="ВКУ" class="header_logo-pic">ВКУ
+                    </a>
+                </div>
+
+                <nav class="header_nav">
+                    <ul class="header_list">
+
+                        <li class="header_item">
+                            <a href="index.html" class="header_link">ГЛАВНАЯ</a>
+                        </li>
+
+                        <li class="header_item">
+                            <a href="authorization.html" class="header_link">ВОЙТИ</a>
+                        </li>
+
+                    </ul>
+                </nav>
+
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="bills">
+            <div class="container">
+
+                <h1>РЕГИСТРАЦИЯ</h1>
+                <hr>
+
+                <label for="surname"><b>ФАМИЛИЯ</b></label>
+                <input type="text" name="surname" required>
+
+                <label for="name"><b>ИМЯ</b></label>
+                <input type="text" name="name" required>
+
+                <label for="midname"><b>ОТЧЕСТВО</b></label>
+                <input type="text" name="midname" required>
+
+                <label for="street"><b>УЛИЦА</b></label>
+                <input type="text" name="street" required>
+
+                <label for="house"><b>ДОМ</b></label>
+                <input type="number" placeholder="Выберите номер дома" name="house" required>
+
+                <label for="flat"><b>КВАРТИРА</b></label>
+                <input type="number" placeholder="Выберите номер квартиры" name="flat" required>
+
+                <label for="resident"><b>КОЛИЧЕСТВО ЖИЛЬЦОВ</b></label>
+                <input type="number" placeholder="Выберите количество проживающих" name="resident" required>
+                <hr>
+
+                <form action="authorization.html">
+                    <button type="submit" class="registerbtn">ЗАРЕГИСТРИРОВАТЬСЯ</button>
+                </form>
+
+            </div>
+        </section>
+    </main>
+
+</body>
+
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Воронеж. Коммунальные услуги</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="wrapper">
+
+            <div class="header_wrapper">
+
+                <div class="header_logo">
+                    <a href="index.html" class="header_logo-link">
+                        <img src="img/svg/logo.svg" alt="ВКУ" class="header_logo-pic">ВКУ
+                    </a>
+                </div>
+
+                <nav class="header_nav">
+
+                    <ul class="header_list">
+
+                        <li class="header_item">
+                            <a href="index.html" class="header_link">ГЛАВНАЯ</a>
+                        </li>
+
+                        <li class="header_item">
+                            <a href="account.html" class="header_link">КАБИНЕТ</a>
+                        </li>
+
+                        <li class="header_item">
+                            <a href="reading.html" class="header_link">ПОКАЗАНИЯ</a>
+                        </li>
+
+                        <li class="header_item">
+                            <a href="authorization.html" class="header_link">ВЫЙТИ</a>
+                        </li>
+
+                    </ul>
+
+                </nav>
+
+            </div>
+
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="bills">
+
+            <div class="block">
+
+                <h1>КВИТАНЦИИ</h1>
+                <hr>
+
+                <!-- Ссылка на иконки-->
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+                <table>
+
+                    <tr>
+                        <td>#ДАТА</td>
+                        <td><i class="fa fa-remove"></i></td>
+
+                    </tr>
+
+                    <tr>
+                        <td>#ДАТА</td>
+                        <td><i class="fa fa-check"></i></td>
+                    </tr>
+
+                </table>
+
+                <hr>
+
+                <form action="help.html">
+                    <button type="submit" class="registerbtn">ОБРАЩЕНИЕ</button>
+                </form>
+
+                <form action="reading.html">
+                    <button type="submit" class="registerbtn">ПОКАЗАНИЯ ИПУ</button>
+                </form>
+
+            </div>
+
+            <div class="block">
+
+                <h1>Квитанция</h1>
+                <hr>
+
+                <h2>ДАТА ФОРМИРАВАНИЯ КВИТАНИИ: #
+                    <br>СТАТУС: #
+                </h2>
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>УСЛУГА</th>
+                            <th>ОБЪЕМ</th>
+                            <th>ЦЕНА ЗА 1 ЕД.</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td data-label="Услуга">ЭЛЕКТРОЭНЕРГИЯ</td>
+                            <td data-label="Объем">#</td>
+                            <td data-label="Цена">#</td>
+                        </tr>
+
+                        <tr>
+                            <td data-label="Услуга">Г.ВОДОСНАБЖЕНИЕ</td>
+                            <td data-label="Объем">#</td>
+                            <td data-label="Цена">#</td>
+                        </tr>
+
+                        <tr>
+                            <td data-label="Услуга">Х.ВОДОСНАБЖЕНИЕ</td>
+                            <td data-label="Объем">#</td>
+                            <td data-label="Цена">#</td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+                <hr>
+
+                <form action="#!">
+                    <button type="submit" class="registerbtn">КВИТАНЦИЯ PDF</button>
+                </form>
+
+                <form action="#!">
+                    <button type="submit" class="registerbtn">ОПЛАТИТЬ</button>
+                </form>
+
+            </div>
+
+        </section>
+    </main>
+
+</body>
+
+</html>
