@@ -153,7 +153,6 @@
       font-family: Jost;
   }
   /*конец button */
-  /* Add padding to containers */
   
   .container {
       font-family: Manrope;
@@ -203,13 +202,11 @@
       background-color: #ddd;
       outline: none;
   }
-  /* Overwrite default styles of hr */
   
   hr {
       border: 1px solid #D9C466;
       margin-bottom: 25px;
   }
-  /* Set a style for the submit/register button */
   
   .registerbtn {
       background-color: #D9C466;
@@ -309,7 +306,6 @@
       align-items: flex-start;
   }
   /*конец table */
-  /*последнее редактировае: работа с фоном и блоками*/
   
   .main {
       height: auto;
