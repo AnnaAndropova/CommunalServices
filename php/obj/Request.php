@@ -36,9 +36,14 @@ class Request
         return false;
     }
 
-    function create()
+    function create($bDate, $iDate)
     {
         if (isset($_POST['request'])) {
+            if (($iDate == null) || (($bDate != null) && ($bDate > $iDate))) {
+                return [
+                    'message' => "Невозможно внести изменения"
+                ];
+            }
             if (empty($_POST['value'])) {
                 return [
                     'message' => "Заполните все поля"

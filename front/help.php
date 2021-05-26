@@ -6,6 +6,7 @@ require '../php/obj/Bill.php';
 require '../php/obj/Client.php';
 require '../php/obj/Address.php';
 require '../php/obj/Request.php';
+require '../php/obj/Indication.php';
 require '../php/obj/IndicationType.php';
 $db = new Database();
 $conn = $db->getConnection();
@@ -20,9 +21,11 @@ $allAddress = $address->getAll();
 $indType = new IndicationType($conn);
 $types = $indType->getAll();
 $request = new Request($conn);
+$indication = new Indication($conn);
+$indDate = $indication->getLastByClientId();
+$billDate = $bill->getLastByClientId()['DATE'];
 
-//добавить поле is checked
-$reqArr = $request->create();
+$reqArr = $request->create($billDate, $indDate);
 ?>
 
 <main class="main">
