@@ -76,7 +76,7 @@ class Client
                     $stmt->bindParam(':login', $this->login);
                     $stmt->bindParam(':count', $this->tenant_count);
                     $stmt->bindParam(':surname', $this->surname);
-                    $stmt->bindParam(':name', $this->surname);
+                    $stmt->bindParam(':name', $this->name);
                     $stmt->bindParam(':patronymic', $this->patronymic);
                     $stmt->bindParam(':password', password_hash($this->password, PASSWORD_DEFAULT));
                     if ($stmt->execute()) {
