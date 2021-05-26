@@ -30,7 +30,15 @@ $allAddress = $address->getAll();
 
             <div class="header_logo">
                 <a href="../index.php" class="header_logo-link">
-                    <img src="img/svg/logo.svg" alt="ВКУ" class="header_logo-pic">ВКУ
+                    <div class="text_logo">
+                        <div>
+                            <img src="img/svg/logo.svg" alt="ВКУ" class="header_logo-pic">
+                        </div>
+                        <div>
+                            <span class="light_logo">ВОРОНЕЖ КОММУНАЛЬНЫЕ УСЛУГИ</span><br>
+                            ВКУ
+                        </div>
+                    </div>
                 </a>
             </div>
 
