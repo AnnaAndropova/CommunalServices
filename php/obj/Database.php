@@ -4,7 +4,7 @@ class Database
 {
     public $conn;
 
-    private $host = "127.0.0.1:50354";
+    private $host = "127.0.0.1:50571";
     private $db_name = "communal_services";
     private $username = "azure";
     private $password = "6#vWHD_$";
