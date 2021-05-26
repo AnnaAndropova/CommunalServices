@@ -1,5 +1,4 @@
 <?php
-require 'vendor/autoload.php';
 
 class Price
 {
@@ -36,7 +35,7 @@ class Price
 
     function getAll()
     {
-        $query = "SELECT * FROM " . $this->table_name;
+        $query = "SELECT * FROM " . $this->table_name." ORDER BY TYPE_ID";
         $stmt = $this->conn->prepare($query);
         if ($stmt->execute()) {
             return $stmt->fetchAll();

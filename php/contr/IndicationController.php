@@ -2,22 +2,22 @@
 
 function add_indication($conn)
 {
-    if (isset($_POST['SOME_ARR'])) {
+    if (isset($_POST['add'])) {
 
-        $bill = new \Bill($conn);
-        $dateBill = $bill->getLastByClientId();
+        $bill = new Bill($conn);
+        $dateBill = $bill->getLastByClientId()['DATE'];
 
-        $indication = new \Indication($conn);
+        $indication = new Indication($conn);
         $dateInd = $indication->getLastByClientId();
         if ($dateBill != false) {
             if ($dateInd != false && $dateInd >= $dateBill) {
                 return [
-                    'message' => 'Вы уже передали показания за текущий расчетный период!'
+                    'message' => 'Вы уже передали показания за текущий расчетный период'
                 ];
             }
         } else if ($dateInd != false) {
             return [
-                'message' => 'Вы уже передали показания за текущий расчетный период!'
+                'message' => 'Вы уже передали показания за текущий расчетный период'
             ];
         }
         for ($i = 1; $i < 4; $i++) {
@@ -32,9 +32,11 @@ function add_indication($conn)
             }
         }
 
-        for ($i = 1; 4; $i++) {
+        for ($i = 1; $i < 4; $i++) {
             $indication = new Indication($conn, $_SESSION['id'], $i, $_POST[$i]);
             $indication->create();
         }
+        header("Location: account.php");
+        return [];
     }
 }

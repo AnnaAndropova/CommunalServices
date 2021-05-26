@@ -1,5 +1,4 @@
 <?php
-require 'vendor/autoload.php';
 
 class Indication
 {
@@ -8,7 +7,7 @@ class Indication
 
     public function __construct()
     {
-        $this->table_name = 'INDICATION';
+        $this->table_name = 'indication';
         $args = func_get_args();
         $cnt = func_num_args();
         switch ($cnt) {
@@ -23,6 +22,29 @@ class Indication
                 $this->value = $args[3];
                 break;
         }
+    }
+
+    function getAllByDate($date) {
+        $query = "SELECT * FROM " . $this->table_name . " WHERE CLIENT_ID = :id AND DATE < :date ORDER BY DATE DESC, TYPE_ID LIMIT 3";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(':id', $_SESSION['id']);
+        $stmt->bindParam(':date', $date);
+        if ($stmt->execute()) {
+            $rows = $stmt->fetchAll();
+            return $rows;
+        }
+        return false;
+    }
+
+    function getAllLast(){
+        $query = "SELECT * FROM " . $this->table_name . " WHERE CLIENT_ID = :id ORDER BY DATE DESC LIMIT 3";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(':id', $_SESSION['id']);
+        if ($stmt->execute()) {
+            $rows = $stmt->fetchAll();
+            return $rows;
+        }
+        return false;
     }
 
     function getById($id) {
@@ -47,6 +69,19 @@ class Indication
         return false;
     }
 
+    function getLastByClientId1($id, $type)
+    {
+        $query = "SELECT * FROM " . $this->table_name . " WHERE CLIENT_ID = :id AND TYPE_ID = :type ORDER BY DATE DESC";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(':id', $id);
+        $stmt->bindParam(':type', $type);
+        if ($stmt->execute()) {
+            $row = $stmt->fetch();
+            return $row;
+        }
+        return false;
+    }
+
     function create()
     {
         $query = "INSERT INTO " . $this->table_name . " VALUES (NULL, :client_id, :date, :type_id, :value)";
@@ -59,7 +94,9 @@ class Indication
         $stmt->bindParam(':type_id', $this->type_id);
         $stmt->bindParam(':value', $this->value);
 
-        $stmt->execute();
+        if ($stmt->execute()) {
+            return [];
+        }
     }
 
     function update($client_id, $type_id, $value)

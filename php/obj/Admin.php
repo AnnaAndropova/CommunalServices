@@ -1,5 +1,5 @@
 <?php
-require 'vendor/autoload.php';
+
 
 class Admin
 {
@@ -25,29 +25,22 @@ class Admin
 
     function create()
     {
-        if (isset($_POST['SOME_NAME'])) {
+        if (isset($_POST['reg'])) {
             if (empty($_POST['login']) || empty($_POST['password'])) {
                 return [
                     'message' => "Заполните все поля"
                 ];
-            } else if (empty($_POST['street']) && empty($_POST['house']) && empty($_POST['apartment']) &&
-                empty($_POST['surname']) && empty($_POST['name']) && empty($_POST['patronymic']) &&
-                empty($_POST['tenant_count']) && !empty($_POST['login']) && !empty($_POST['password'])) {
-                if ($this->checkLogin()) {
-                    return [
-                        'message' => "Данный логин уже существует"
-                    ];
-                }
+            } else {
                 $query = "INSERT INTO " . $this->table_name . " VALUES 
                     (NULL, 
-                    LOGIN = :login, 
-                    PASS = :password)";
+                    :login, 
+                    :password)";
                 $stmt = $this->conn->prepare($query);
-                $stmt->bindParam(':login', $this->login);
-                $stmt->bindParam(':password', password_hash($this->password, PASSWORD_DEFAULT));
+                $stmt->bindParam(':login', $_POST['login']);
+                $stmt->bindParam(':password', password_hash($_POST['password'], PASSWORD_DEFAULT));
                 if ($stmt->execute()) {
 
-                    //header("Location: /index.php");
+                    header("Location: ../index.php");
                     exit();
 
                 }
@@ -55,17 +48,22 @@ class Admin
         }
     }
 
+
     function checkLogin()
     {
         $query = "SELECT COUNT(*) FROM " . $this->table_name . " WHERE LOGIN = :login";
-        $res = $this->conn->query($query);
-        $row = $res->fetchAll(PDO::FETCH_COLUMN);
-        return $row[0] != null;
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(':login', $this->login);
+        if ($stmt->execute()) {
+            $rows = $stmt->fetchAll(PDO::FETCH_COLUMN);
+            return $rows[0] != 0;
+        }
+        return false;
     }
 
     function login()
     {
-        if (isset($_POST["SOME_NAME"])) {
+        if (isset($_POST['do_login'])) {
             if (empty($_POST['login']) || empty($_POST['password'])) {
                 return [
                     'message' => "Заполните все поля"
@@ -77,17 +75,17 @@ class Admin
                     if ($this->checkPassword()) {
                         $_SESSION['isAdmin'] = true;
 
-                        //header("Location: /index.php");
+                        header("Location: adminfirstpage.php");
                         exit();
 
                     } else {
                         return [
-                            'message' => "Неверный пароль"
+                            'message' => "Неверный логин или пароль"
                         ];
                     }
                 } else {
                     return [
-                        'message' => "Неверный логин"
+                        'message' => "Неверный логин или пароль"
                     ];
                 }
             }
@@ -108,7 +106,8 @@ class Admin
     }
 
     function logout(){
-
+        session_unset();
+        header("Location: authorization.php");
     }
 
 }

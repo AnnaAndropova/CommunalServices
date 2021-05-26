@@ -1,5 +1,5 @@
 <?php
-require 'vendor/autoload.php';
+
 
 class IndicationType
 {
@@ -30,6 +30,15 @@ class IndicationType
         $stmt->bindParam(':id', $id);
         if ($stmt->execute()) {
             return $stmt->fetch();
+        }
+        return false;
+    }
+
+    function getAll(){
+        $query = "SELECT * FROM " . $this->table_name;
+        $stmt = $this->conn->prepare($query);
+        if ($stmt->execute()) {
+            return $stmt->fetchAll();
         }
         return false;
     }

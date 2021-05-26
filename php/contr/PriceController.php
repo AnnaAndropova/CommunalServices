@@ -1,9 +1,8 @@
 <?php
-require 'vendor/autoload.php';
 
 function update_price($conn)
 {
-    if (isset($_POST['SOME_ARR'])) {
+    if (isset($_POST['save'])) {
         for ($i = 1; $i < 4; $i++) {
             if (empty($_POST['value' . $i . '']) || empty($_POST['price' . $i . ''])) {
                 return [
@@ -20,6 +19,7 @@ function update_price($conn)
             $price = new Price($conn, $i, $_POST['value' . $i . ''], $_POST['price' . $i . '']);
             $price->update();
         }
+        header("Location: ../front/adminfirstpage.php");
     }
 }
 

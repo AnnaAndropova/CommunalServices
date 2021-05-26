@@ -1,372 +1,427 @@
-  html {
-      box-sizing: border-box;
-  }
-  
-  *,
-  *::before,
-  *::after {
-      box-sizing: inherit;
-  }
-  
-  body {
-      font-family: Manrope;
-      font-style: normal;
-      font-size: 22px;
-      font-weight: bold;
-      color: #636364;
-      background: #fff;
-      width: 100%;
-      margin: 0 auto;
-  }
-  
-  .wrapper {
-      max-width: 1400px;
-      margin: 0 auto;
-  }
-  /*начало header*/
-  
-  .header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-  }
-  
-  .header_wrapper {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-  }
-  
-  .header_title {
-      font-family: Jost;
-      font-weight: 800;
-      font-size: 55px;
-      line-height: 55px;
-      color: white;
-      margin-right: auto;
-  }
-  
-  .header_list {
-      display: flex;
-      flex-wrap: wrap;
-  }
-  
-  .header_item {
-      margin-right: 68px;
-  }
-  
-  .header_item:last-child {
-      margin-right: 0;
-  }
-  
-  .header_link {
-      font-size: 16px;
-      line-height: 22px;
-      color: white;
-      text-decoration: none;
-  }
-  
-  .header_link:hover,
-  header_link:focus,
-  header_link:active {
-      opacity: .75;
-  }
-  /*конец header*/
-  /*начало intro*/
-  
-  .intro_title {
-      font-family: Montserrat;
-      font-weight: 900;
-      font-size: 45px;
-      line-height: 55px;
-      text-align: center;
-      color: white;
-      margin-bottom: 50px;
-  }
-  
-  .outro_title {
-      font-family: Montserrat;
-      font-weight: 700;
-      font-size: 36px;
-      text-align: center;
-      color: white;
-      margin-top: 50px;
-      line-height: 50px;
-  }
-  
-  .intro_subtitle {
-      text-align: center;
-      color: white;
-  }
-  /*конец intro */
-  /*начало button */
-  
-  .button {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-  }
-  
-  .floating-button {
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      width: 374px;
-      height: 103px;
-      line-height: 1;
-      border-radius: 20px;
-      margin: 10px 20px;
-      font-family: Manrope;
-      font-size: 20px;
-      text-transform: uppercase;
-      text-align: center;
-      letter-spacing: 3px;
-      font-weight: 600;
-      color: white;
-      background: #ABA794;
-      box-shadow: 0 8px 15px rgb(0 0 0 / 10%);
-      transition: .3s;
-      justify-content: center;
-  }
-  
-  .floating-button:hover {
-      background: #D9C466;
-      box-shadow: 0 15px 20px white;
-      color: white;
-      transform: translateY(-7px);
-  }
-  
-  .header_logo-link img {
-      max-width: 90px;
-      width: 100%;
-      object-fit: contain;
-  }
-  
-  .header_logo a {
-      font-size: 40px;
-      text-decoration: none;
-      color: #fff;
-      font-weight: bold;
-      font-family: Jost;
-  }
-  /*конец button */
-  
-  .container {
-      font-family: Manrope;
-      font-style: normal;
-      margin-left: auto;
-      margin-right: auto;
-      width: 625px;
-      height: auto;
-      border-radius: 20px;
-      padding: 56px;
-      background: rgba(229, 229, 229, 0.8);
-  }
-  
-  h1 {
-      text-align: center;
-  }
-  
-  input[type=text],
-  input[type=number] {
-      width: 100%;
-      padding: 15px;
-      margin: 5px 0 22px 0;
-      display: inline-block;
-      border: none;
-      border-radius: 20px;
-      background: #f1f1f1;
-  }
-  
-  input[type=text]:focus,
-  input[type=number]:focus {
-      background-color: #ddd;
-      outline: none;
-  }
-  
-  .look {
-      width: 100%;
-      padding: 15px;
-      margin: 5px 0 22px 0;
-      display: inline-block;
-      border: none;
-      border-radius: 20px;
-      background: #f1f1f1;
-  }
-  
-  .look:focus {
-      background-color: #ddd;
-      outline: none;
-  }
-  
-  hr {
-      border: 1px solid #D9C466;
-      margin-bottom: 25px;
-  }
-  
-  .registerbtn {
-      background-color: #D9C466;
-      color: white;
-      padding: 16px 20px;
-      margin: 8px 0;
-      border: none;
-      border-radius: 20px;
-      cursor: pointer;
-      width: 100%;
-      opacity: 0.9;
-  }
-  /*начало table */
-  
-  .table-wrap {
-      font-family: Manrope;
-      font-style: normal;
-      font-size: 22px;
-      font-weight: 400;
-      text-align: center;
-      display: inline-block;
-      background-color: #fff;
-      color: #636364
-  }
-  
-  table {
-      border: 1px solid #ccc;
-      width: 100%;
-      border-collapse: collapse;
-      border-spacing: 0;
-  }
-  
-  table tr {
-      border: 1px solid #ddd;
-      padding: 5px;
-  }
-  
-  table th,
-  table td {
-      padding: 15px;
-      text-align: center;
-      border-right: 1px solid #ddd;
-  }
-  
-  table th {
-      font-family: Manrope;
-      font-style: normal;
-      font-size: 22px;
-      font-weight: 700;
-      color: #fff;
-      background-color: #ABA794;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-  }
-  
-  th:first-child,
-  td:first-child {
-      text-align: left;
-  }
-  
-  tr {
-      background-color: #f2f2f2
-  }
-  
-  .fa-check {
-      color: green;
-  }
-  
-  .fa-remove {
-      color: red;
-  }
-  
-  .block {
-      display: block;
-      font-family: Manrope;
-      font-style: normal;
-      margin-bottom: 20px;
-      max-width: 495px;
-      width: 100%;
-      height: auto;
-      border-radius: 20px;
-      padding: 25px;
-      background: rgba(229, 229, 229, 0.8);
-      line-height: 32px;
-      margin: 20px 30px;
-  }
-  
-  .bills {
-      display: -webkit-flex;
-      display: -moz-flex;
-      display: -ms-flex;
-      display: -o-flex;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      -ms-align-items: flex-start;
-      align-items: flex-start;
-  }
-  /*конец table */
-  
-  .main {
-      height: auto;
-      background: url(../img/png/HEAD.png) no-repeat center;
-      background-size: contain;
-      min-height: 700px;
-      padding-top: 150px;
-      background-position: top;
-      padding-bottom: 250px;
-  }
-  
-  @media screen and (max-width: 768px) {
-      .main {
-          background-size: cover;
-          padding-top: 100px;
-          background-position: top;
-          padding-bottom: 250px;
-      }
-      .intro {
-          margin-top: 85px;
-      }
-      .intro_title {
-          font-size: 30px;
-          line-height: 1.2;
-      }
-      .header_wrapper {
-          justify-content: center;
-          margin-right: 0;
-          -webkit-flex-direction: column;
-          -moz-flex-direction: column;
-          -ms-flex-direction: column;
-          -o-flex-direction: column;
-          flex-direction: column;
-      }
-      .header_logo {
-          margin-bottom: 10px;
-      }
-      table {
-          border: 0;
-      }
-      table thead {
-          display: none;
-      }
-      table tr {
-          margin-bottom: 10px;
-          display: block;
-          border-bottom: 2px solid #ddd;
-      }
-      table td {
-          display: block;
-          text-align: right;
-          font-size: 13px;
-          border-bottom: 1px dotted #ccc;
-          border-right: 1px solid transparent;
-      }
-      table td:last-child {
-          border-bottom: 0;
-      }
-      table td:before {
-          content: attr(data-label);
-          float: left;
-          text-transform: uppercase;
-          font-weight: bold;
-      }
-  }
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: Manrope;
+    font-style: normal;
+    font-size: 22px;
+    font-weight: bold;
+    color: #636364;
+    background: #fff;
+    width: 100%;
+    margin: 0 auto;
+    text-transform: uppercase;
+}
+
+.wrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/*начало header*/
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.header_wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header_title {
+    font-family: Jost;
+    font-weight: 800;
+    font-size: 55px;
+    line-height: 55px;
+    color: white;
+    margin-right: auto;
+}
+
+.header_list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.header_item {
+    margin-right: 68px;
+}
+
+.header_item:last-child {
+    margin-right: 0;
+}
+
+.header_link {
+    font-size: 16px;
+    line-height: 22px;
+    color: white;
+    text-decoration: none;
+}
+
+.header_link:hover,
+header_link:focus,
+header_link:active {
+    opacity: .75;
+}
+
+/*конец header*/
+/*начало intro*/
+
+.intro_title {
+    font-family: Montserrat;
+    font-weight: 900;
+    font-size: 45px;
+    line-height: 55px;
+    text-align: center;
+    color: white;
+    margin-bottom: 50px;
+}
+
+.outro_title {
+    font-family: Montserrat;
+    font-weight: 700;
+    font-size: 36px;
+    text-align: center;
+    color: #636364;
+    margin-top: 50px;
+    line-height: 50px;
+}
+
+.intro_subtitle {
+    text-align: center;
+    color: white;
+}
+
+/*конец intro */
+/*начало button */
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.floating-button {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    width: 374px;
+    height: 103px;
+    line-height: 1;
+    border-radius: 20px;
+    margin: 10px 20px;
+    font-family: Manrope;
+    font-size: 20px;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 3px;
+    font-weight: 600;
+    color: white;
+    background: #ABA794;
+    box-shadow: 0 8px 15px rgb(0 0 0 / 10%);
+    transition: .3s;
+    justify-content: center;
+}
+
+.floating-button:hover {
+    background: #D9C466;
+    box-shadow: 0 15px 20px white;
+    color: white;
+    transform: translateY(-7px);
+}
+
+.header_logo-link img {
+    max-width: 90px;
+    width: 100%;
+    object-fit: contain;
+}
+
+.header_logo a {
+    font-size: 40px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-family: Jost;
+}
+
+/*конец button */
+
+.container {
+    font-family: Manrope;
+    font-style: normal;
+    margin-left: auto;
+    margin-right: auto;
+    width: 625px;
+    height: auto;
+    border-radius: 20px;
+    padding: 56px;
+    background: rgba(229, 229, 229, 0.8);
+}
+
+h1 {
+    text-align: center;
+}
+
+input[type=text],
+input[type=password],
+input[type=number] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    border-radius: 20px;
+    background: #f1f1f1;
+}
+
+input[type=text]:focus,
+input[type=password]:focus,
+input[type=number]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+.look {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    border-radius: 20px;
+    background: #f1f1f1;
+}
+
+.look:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+hr {
+    border: 1px solid #D9C466;
+    margin-bottom: 25px;
+}
+
+.registerbtn {
+    background-color: #D9C466;
+    color: white;
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+}
+
+/*начало table */
+
+.table-wrap {
+    font-family: Manrope;
+    font-style: normal;
+    font-size: 22px;
+    font-weight: 400;
+    text-align: center;
+    display: inline-block;
+    background-color: #fff;
+    color: #636364
+}
+
+table {
+    border: 1px solid #ccc;
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+table tr {
+    border: 1px solid #ddd;
+    padding: 5px;
+}
+
+table th,
+table td {
+    padding: 15px;
+    text-align: center;
+    border-right: 1px solid #ddd;
+}
+
+table th {
+    font-family: Manrope;
+    font-style: normal;
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+    background-color: #ABA794;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+th:first-child,
+td:first-child {
+    text-align: left;
+}
+
+tr {
+    background-color: #f2f2f2
+}
+
+.fa-check {
+    color: green;
+}
+
+.fa-remove {
+    color: red;
+}
+
+.block {
+    display: block;
+    font-family: Manrope;
+    font-style: normal;
+    margin-bottom: 20px;
+    max-width: 495px;
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    padding: 25px;
+    background: rgba(229, 229, 229, 0.8);
+    line-height: 32px;
+    margin: 20px 30px;
+}
+
+.bills {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    -ms-align-items: flex-start;
+    align-items: flex-start;
+}
+
+/*конец table */
+
+.main {
+    height: auto;
+    background: url(../img/png/MAIN.png) no-repeat center;
+    background-size: contain;
+    min-height: 700px;
+    padding-top: 150px;
+    background-position: top;
+    padding-bottom: 250px;
+}
+
+a {
+    text-decoration: none;
+    color: #636364;
+}
+
+.text_logo {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.light_logo {
+    font-family: Jost;
+    font-weight: lighter;
+    font-size: 15px;
+}
+
+.center {
+    width: 70%;
+    margin: auto;
+    margin-top: 40px;
+    text-align: center;
+}
+
+.contact {
+    text-transform: none;
+    text-align: right;
+    margin-top: 70px;
+}
+
+.error {
+    color: #cb401b;
+    font-size: 18px;
+    text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+    .main {
+        background-size: cover;
+        padding-top: 100px;
+        background-position: top;
+        padding-bottom: 250px;
+    }
+
+    .intro {
+        margin-top: 85px;
+    }
+
+    .intro_title {
+        font-size: 30px;
+        line-height: 1.2;
+    }
+
+    .header_wrapper {
+        justify-content: center;
+        margin-right: 0;
+        -webkit-flex-direction: column;
+        -moz-flex-direction: column;
+        -ms-flex-direction: column;
+        -o-flex-direction: column;
+        flex-direction: column;
+    }
+
+    .header_logo {
+        margin-bottom: 10px;
+    }
+
+    table {
+        border: 0;
+    }
+
+    table thead {
+        display: none;
+    }
+
+    table tr {
+        margin-bottom: 10px;
+        display: block;
+        border-bottom: 2px solid #ddd;
+    }
+
+    table td {
+        display: block;
+        text-align: right;
+        font-size: 13px;
+        border-bottom: 1px dotted #ccc;
+        border-right: 1px solid transparent;
+    }
+
+    table td:last-child {
+        border-bottom: 0;
+    }
+
+    table td:before {
+        content: attr(data-label);
+        float: left;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+}

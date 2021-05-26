@@ -1,5 +1,5 @@
 <?php
-require 'vendor/autoload.php';
+
 
 class Client
 {
@@ -35,7 +35,7 @@ class Client
 
     function create()
     {
-        if (isset($_POST['SOME_NAME'])) {
+        if (isset($_POST['reg'])) {
             if (empty($_POST['street']) || empty($_POST['house']) || empty($_POST['apartment']) ||
                 empty($_POST['surname']) || empty($_POST['name']) || empty($_POST['patronymic']) ||
                 empty($_POST['tenant_count']) || empty($_POST['login']) || empty($_POST['password'])) {
@@ -45,7 +45,7 @@ class Client
             } else {
                 $address = new Address($this->conn, $_POST['street'], $_POST['house'], $_POST['apartment']);
                 if ($address->checkIfExist()) {
-                    $this->tenant_count = htmlspecialchars($_POST['tenant_count']);
+                    $this->tenant_count = $_POST['tenant_count'];
                     $this->surname = htmlspecialchars($_POST['surname']);
                     $this->name = htmlspecialchars($_POST['name']);
                     $this->patronymic = htmlspecialchars($_POST['patronymic']);
@@ -64,13 +64,13 @@ class Client
                     $addressId = $address->getId();
                     $query = "INSERT INTO " . $this->table_name . " VALUES 
                     (NULL, 
-                    ADDRESS_ID = :address, 
-                    LOGIN = :login, 
-                    TENANT_COUNT = :count, 
-                    SURNAME = :surname, 
-                    NAME = :name, 
-                    PATRONYMIC = :patronymic,
-                    PASS = :password)";
+                    :address, 
+                    :count, 
+                    :surname, 
+                    :name, 
+                    :patronymic,
+                    :login, 
+                    :password)";
                     $stmt = $this->conn->prepare($query);
                     $stmt->bindParam(':address', $addressId);
                     $stmt->bindParam(':login', $this->login);
@@ -81,8 +81,8 @@ class Client
                     $stmt->bindParam(':password', password_hash($this->password, PASSWORD_DEFAULT));
                     if ($stmt->execute()) {
 
-                        //header("Location: /index.php");
-                        exit();
+                        header("Location: ../index.php");
+                        return [];
 
                     }
                 } else {
@@ -94,75 +94,83 @@ class Client
         }
     }
 
+    // ЭТО РАБОТАЕТ НО НЕ РАБОТАЛО ????
     function checkLogin()
     {
         $query = "SELECT COUNT(*) FROM " . $this->table_name . " WHERE LOGIN = :login";
-        $res = $this->conn->query($query);
-        $row = $res->fetchAll(PDO::FETCH_COLUMN);
-        return $row[0] != null;
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(':login', $this->login);
+        if ($stmt->execute()) {
+            $rows = $stmt->fetchAll(PDO::FETCH_COLUMN);
+            return $rows[0] != 0;
+        }
+        return false;
     }
 
     function checkAddress()
     {
-        $query = "SELECT COUNT(*) FROM " . $this->table_name . " WHERE ADDRESS_ID = '$this->address_id'";
-        $res = $this->conn->query($query);
-        $row = $res->fetchAll(PDO::FETCH_COLUMN);
-        return $row[0] != null;
+        $query = "SELECT COUNT(*) FROM " . $this->table_name . " WHERE ADDRESS_ID = :address_id";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(':address_id', $this->address_id);
+        if ($stmt->execute()) {
+            $rows = $stmt->fetchAll(PDO::FETCH_COLUMN);
+            return $rows[0] != 0;
+        }
+        return false;
     }
 
     function changeData()
     {
-        if (isset($_POST['SOME_NAME'])) {
+        if (isset($_POST['change'])) {
             if (empty($_POST['street']) || empty($_POST['house']) || empty($_POST['apartment']) ||
-                empty($_POST['surname']) || empty($_POST['name']) || empty($_POST['patronymic']) ||
                 empty($_POST['tenant_count']) || empty($_POST['login'])) {
+
+                    $message = "Заполните все поля";
                 return [
-                    'message' => "Заполните все поля"
+                    'message' => $message
                 ];
             } else {
                 $address = new Address($this->conn, $_POST['street'], $_POST['house'], $_POST['apartment']);
-                $id = $address->checkIfExist();
-                if ($id != null) {
-                    $this->tenant_count = htmlspecialchars($_POST['tenant_count']);
-                    $this->surname = htmlspecialchars($_POST['surname']);
-                    $this->name = htmlspecialchars($_POST['name']);
-                    $this->patronymic = htmlspecialchars($_POST['patronymic']);
-                    $this->login = htmlspecialchars($_POST['login']);
-                    if ($this->checkLogin()) {
-                        return [
-                            'message' => "Данный логин уже существует"
-                        ];
-                    }
+
+                if ($address->checkIfExist()) {
+                    $this->tenant_count = $_POST['tenant_count'];
+                    $this->login = $_POST['login'];
+
                     if ($this->tenant_count < 0) {
+                            $message = "Недопустимое значение количества жильцов";
                         return [
-                            'message' => "Недопустимое значение количества жильцов"
+                            'message' => $message
                         ];
                     }
-                    $id = $_SESSION['id'];
                     $addressId = $address->getId();
                     if ($addressId != null) {
                         $query = "UPDATE " . $this->table_name . " 
-            SET ADDRESS_ID = :address, LOGIN = :login, TENANT_COUNT = :count, SURNAME = :surname, NAME = :name,
-            PATRONYMIC = :patronymic WHERE ID = :id";
+            SET ADDRESS_ID = :address, TENANT_COUNT = :count WHERE ID = :id";
                         $stmt = $this->conn->prepare($query);
                         $stmt->bindParam(':address', $addressId);
-                        $stmt->bindParam(':login', $this->login);
                         $stmt->bindParam(':count', $this->tenant_count);
-                        $stmt->bindParam(':surname', $this->surname);
-                        $stmt->bindParam(':name', $this->surname);
-                        $stmt->bindParam(':patronymic', $this->patronymic);
-                        $stmt->bindParam(':id', $id);
+                        $stmt->bindParam(':id', $_SESSION['id']);
                         if ($stmt->execute()) {
+                            header("Location: account.php");
                             return [];
                         }
                     } else {
+
+                            $message = "Неверный адрес";
                         return [
-                            'message' => "Неверный адрес"
+                            'message' => $message
                         ];
                     }
+                } else {
+
+                    $message = "Неверный адрес";
+                    return [
+                        'message' => $message
+                    ];
                 }
             }
         }
+        return [];
     }
 
     function getById()
@@ -177,38 +185,54 @@ class Client
         return false;
     }
 
-    function login()
+    function getById1($id)
     {
-        if (isset($_POST["SOME_NAME"])) {
-            if (empty($_POST['login']) || empty($_POST['password'])) {
-                return [
-                    'message' => "Заполните все поля"
-                ];
+        $query = "SELECT * FROM " . $this->table_name . " WHERE ID = :id";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(':id', $id);
+        if ($stmt->execute()) {
+            return $stmt->fetch();
+        }
+
+        return false;
+    }
+
+    function login($arr)
+    {
+        $message = null;
+        if (isset($arr['do_login'])) {
+            if (empty($arr['login']) || empty($arr['password'])) {
+
+                $message = "Заполните все поля";
+
             } else {
-                $this->login = $_POST['login'];
-                $this->password = $_POST['password'];
+                $this->login = $arr['login'];
+                $this->password = $arr['password'];
                 if ($this->checkLogin()) {
                     if ($this->checkPassword()) {
                         $_SESSION['id'] = $this->getId();
                         $_SESSION['isAdmin'] = false;
 
 
-                        //header("Location: /index.php"); слеш чтобы поиск был в корне проекта а не тек папке
+                        header("Location: account.php");
                         exit();
 
 
                     } else {
-                        return [
-                            'message' => "Неверный пароль"
-                        ];
+
+                        $message = "Неверный логин или пароль";
+
                     }
                 } else {
-                    return [
-                        'message' => "Неверный логин"
-                    ];
+
+                    $message = "Неверный логин или пароль";
+
                 }
             }
         }
+        return [
+            'message' => $message
+        ];
     }
 
     function checkPassword()
@@ -240,17 +264,17 @@ class Client
 
     function changePassword()
     {
-        if (isset($_POST['SOME_ARR'])) {
-            $query = "SELECT * FROM " . $this->table_name . " WHERE ID = :id LIMIT 1";
+        if (isset($_POST['password'])) {
+            $query = "SELECT * FROM " . $this->table_name . " WHERE ID = :id";
             $stmt = $this->conn->prepare($query);
             $stmt->bindParam(':id', $_SESSION['id']);
 
             if ($stmt->execute()) {
                 $row = $stmt->fetch();
-                $this->login = $row['login'];
+                $this->login = $row['LOGIN'];
             }
-            $this->password = $_POST['password'];
-            if (empty($_POST['password']) || empty($_POST['new_password']) || empty($_POST['repeat_password'])) {
+            $this->password = $_POST['old_password'];
+            if (empty($_POST['old_password']) || empty($_POST['new_password']) || empty($_POST['repeat_password'])) {
                 return [
                     'message' => "Заполните все поля"
                 ];
@@ -275,8 +299,7 @@ class Client
     function logout()
     {
         session_unset();
-
-        //header
+        header("Location: authorization.php");
     }
 
 }

@@ -1,28 +1,50 @@
 {
-    "name": "anna/communal-services",
-    "type": "project",
-    "authors": [
-        {
-            "name": "Anna Andropova",
-            "email": "raduga_a@bk.ru"
-        },
-        {
-            "name": "Maxim Kotolevsky",
-            "email": "maximkotolevsky@yandex.ru"
-        },
-        {
-            "name": "Natalia Salova",
-            "email": "salovanat01@gmail.com"
-        }
-    ],
-    "require": {
-        "ext-pdo": "*"
+  "name": "anna/communal-services",
+  "type": "project",
+  "authors": [
+    {
+      "name": "Anna Andropova",
+      "email": "raduga_a@bk.ru"
     },
-    "autoload": {
-        "classmap": ["php"],
-        "files": [  "php/contr/BillController.php",
-                    "php/contr/IndicationController.php",
-                    "php/contr/PriceController.php" ]
+    {
+      "name": "Maxim Kotolevsky",
+      "email": "maximkotolevsky@yandex.ru"
     },
-    "description": ""
+    {
+      "name": "Natalia Salova",
+      "email": "salovanat01@gmail.com"
+    }
+  ],
+  "require": {
+    "ext-pdo": "*",
+    "tecnickcom/tcpdf": "^6.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "": "php/obj"
+    },
+    "files": [
+      "php/contr/BillController.php",
+      "php/contr/IndicationController.php",
+      "php/contr/PriceController.php",
+      "front/account.php",
+      "front/addresses.php",
+      "front/admin_header.php",
+      "front/adminfirstpage.php",
+      "front/adminsecondpage.php",
+      "front/authorization.php",
+      "front/bill.php",
+      "front/chpassword.php",
+      "front/header.php",
+      "front/help.php",
+      "front/main_header.php",
+      "front/reading.php",
+      "front/reference.php",
+      "front/registration.php",
+      "front/tariffs.php",
+      "front/ticket.php"
+
+    ]
+  },
+  "description": ""
 }
