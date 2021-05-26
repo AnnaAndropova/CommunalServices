@@ -63,14 +63,14 @@ $arr = $client->changePassword();
 
             <form method="post">
 
-                <label for="passord"><b>ТЕКУЩИЙ ПАРОЛЬ</b></label>
-                <input type="text" name="old_password" required>
+                <label><b>ТЕКУЩИЙ ПАРОЛЬ</b></label>
+                <input type="password" name="old_password" required>
 
-                <label for="newpassord"><b>НОВЫЙ ПАРОЛЬ</b></label>
-                <input type="text" name="new_password" required>
+                <label><b>НОВЫЙ ПАРОЛЬ</b></label>
+                <input type="password" name="new_password" required>
 
-                <label for="repeatpassord"><b>ПОВТОРИТЕ ПАРОЛЬ</b></label>
-                <input type="text" name="repeat_password" required>
+                <label><b>ПОВТОРИТЕ ПАРОЛЬ</b></label>
+                <input type="password" name="repeat_password" required>
 
 
                 <div class="error">
