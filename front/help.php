@@ -47,7 +47,7 @@ $reqArr = $request->create($billDate, $indDate);
                 </select>
 
                 <label for="value"><b>ЗНАЧЕНИЕ</b></label>
-                <input type="number" name="value" required>
+                <input type="number" name="value" min="1" required>
 
                 <div class="error">
                     <?php
@@ -93,15 +93,15 @@ $reqArr = $request->create($billDate, $indDate);
                 </select>
 
                 <label for="house"><b>ДОМ</b></label>
-                <input type="number" placeholder="Выберите номер дома" name="house" required
+                <input type="number" placeholder="Выберите номер дома" name="house" min="1" required
                        value="<?php echo $address->house ?>">
 
                 <label for="flat"><b>КВАРТИРА</b></label>
-                <input type="number" placeholder="Выберите номер квартиры" name="apartment" required
+                <input type="number" placeholder="Выберите номер квартиры" name="apartment" min="1" required
                        value="<?php echo $address->apartment ?>">
 
                 <label for="resident"><b>КОЛИЧЕСТВО ЖИЛЬЦОВ</b></label>
-                <input type="number" placeholder="Выберите количество проживающих" name="tenant_count" required
+                <input type="number" placeholder="Выберите количество проживающих" name="tenant_count" min="1" required
                        value="<?php echo $clientInfo['TENANT_COUNT'] ?>">
 
                 <?php

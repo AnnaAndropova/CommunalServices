@@ -88,7 +88,7 @@ $allAddress = $address->getAll();
                 </select>
 
                 <label for="house"><b>ДОМ</b></label>
-                <input type="number" placeholder="Выберите номер дома" name="house" required>
+                <input type="number" placeholder="Выберите номер дома" name="house" min="1" required>
 
                 <label for="apartment"><b>КВАРТИРА</b></label>
                 <input type="number" placeholder="Выберите номер квартиры" name="apartment" required>

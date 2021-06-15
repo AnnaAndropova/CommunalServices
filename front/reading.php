@@ -36,7 +36,7 @@ $arrAdd = add_indication($conn);
                 <?php
                 foreach ($types as $type) {
                     echo '<label><b>' . $type['NAME'] . '</b></label>';
-                    echo '<input type="number" name="' . $type['ID'] . '" required>';
+                    echo '<input type="number" min="1" name="' . $type['ID'] . '" required>';
                 }
                 ?>
 
@@ -81,15 +81,15 @@ $arrAdd = add_indication($conn);
                 </select>
 
                 <label for="house"><b>ДОМ</b></label>
-                <input type="number" placeholder="Выберите номер дома" name="house" required
+                <input type="number" placeholder="Выберите номер дома" name="house" min="1" required
                        value="<?php echo $address->house ?>">
 
                 <label for="flat"><b>КВАРТИРА</b></label>
-                <input type="number" placeholder="Выберите номер квартиры" name="apartment" required
+                <input type="number" placeholder="Выберите номер квартиры" name="apartment" min="1" required
                        value="<?php echo $address->apartment ?>">
 
                 <label for="resident"><b>КОЛИЧЕСТВО ЖИЛЬЦОВ</b></label>
-                <input type="number" placeholder="Выберите количество проживающих" name="tenant_count" required
+                <input type="number" placeholder="Выберите количество проживающих" name="tenant_count" min="1" required
                        value="<?php echo $clientInfo['TENANT_COUNT'] ?>">
 
                 <?php

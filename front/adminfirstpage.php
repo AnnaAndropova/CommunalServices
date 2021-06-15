@@ -61,9 +61,9 @@ $arr = update_price($conn);
                     $type = $indType->getById($row['TYPE_ID']);
                     echo '<h1>' . $type['NAME'] . '</h1>';
                     echo '<label><b>ОБЪЕМ</b></label>';
-                    echo '<input type="number" name="value' . $i . '" value="' . $row['VALUE'] . '">';
+                    echo '<input type="number" min="1" name="value' . $i . '" value="' . $row['VALUE'] . '">';
                     echo '<label for="price"><b>ЦЕНА</b></label>';
-                    echo '<input type="number" name="price' . $i . '" value="' . $row['PRICE'] . '">';
+                    echo '<input type="number" min="1" name="price' . $i . '" value="' . $row['PRICE'] . '">';
                     $i++;
                 }
                 ?>
