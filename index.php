@@ -12,7 +12,10 @@ session_start();
 
     <link rel="stylesheet" href="front/css/reset.css">
     <link rel="stylesheet" href="front/css/fonts.css">
-    <link rel="stylesheet" href="front/css/style.css">
+    <link rel="stylesheet" href="front/css/style.css">  
+</head>
+
+<body>
     
     <!-- Yandex.Metrika counter -->
 <script type="text/javascript" >
@@ -43,9 +46,6 @@ session_start();
 <noscript><div><img src="https://mc.yandex.ru/watch/81054280" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
     
-</head>
-
-<body>
 <header class="header">
     <div class="wrapper">
         <div class="header_wrapper">
