@@ -19,6 +19,7 @@
 * [Swagger](https://app.swaggerhub.com/apis/AnnaAndropova/CommunalServices/1.0#) 
 * [Демо-видео проекта](https://drive.google.com/file/d/1zYP_aEeW649Vw66T0L9_O4_SuOnXDvOV/view?usp=sharing)
 * [Метрика](https://metrika.yandex.ru/dashboard?id=81056281) 
+* [Защита проекта](https://drive.google.com/file/d/1JciSTIu2EJDIjhBP40M5hWdEQixAkK_v/view?usp=sharing) 
 
 ## Сайт
 
