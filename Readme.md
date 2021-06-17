@@ -18,7 +18,7 @@
 * [Figma](https://www.figma.com/file/BNhgByrNvbXKFFpeY7KCow/Макет?node-id=0%3A1)
 * [Swagger](https://app.swaggerhub.com/apis/AnnaAndropova/CommunalServices/1.0#) 
 * [Демо-видео проекта](https://drive.google.com/file/d/1zYP_aEeW649Vw66T0L9_O4_SuOnXDvOV/view?usp=sharing)
-* Метрика 
+* [Метрика](https://metrika.yandex.ru/dashboard?id=81056281) 
 
 ## Сайт
 
